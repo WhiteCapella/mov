@@ -28,7 +28,7 @@ def test_비밀키숨기기():
 
 
 def test_유알엘테스트():
-    url = gen_url()
+    url = gen_url(dt='20231231')
     assert "http" in url
     assert "kobis" in url
 
