@@ -3,7 +3,7 @@ name = "mov"
 version = "0.2.0"
 description = "영화진흥위원회 영화순위 데이터 처리"
 authors = [
-    {name = "dMario24", email = "data.mario24@gmail.com"},
+    {name = "whitecapella1", email = "whitecapella@naver.com"},
 ]
 dependencies = [
     "requests>=2.32.3",
@@ -28,5 +28,5 @@ test = [
 mov-ping = 'mov.cli:ping'
 
 [project.urls]
-Homepage = "https://github.com/dMario24/mov"
-Issues = "https://github.com/dMario24/mov/issues"
+Homepage = "https://github.com/WhiteCapella/mov"
+Issues = "https://github.com/WhiteCapella/mov/issues"
