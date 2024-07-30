@@ -5,6 +5,19 @@ import pandas as pd
 def echo(yaho):
     return yaho
 
+def apply_type2df(load_dt, path):
+    #TODO
+    #저장한 parquet 파일들을 변형시키기
+    df = pd.read_parquet(f'{path}/load_dt={load_dt}')
+    df['rnum'] = pd.to_numeric(df['rnum'])
+    df['rank'] = pd.to_numeric(df['rank'])
+    num_cols = ['rnum', 'rank', 'rankInten', 'salesAmt', 'audiCnt', 'audiAcc', 'scrnCnt', 'showCnt', 'salesShare', 'salesInten', 'salesChange', 'audiInten', 'audiChange']
+    
+    for c in num_cols:
+        df[c] = pd.to_numeric(df[c])
+
+    return df
+
 def save2df(load_dt):
     df = list2df(load_dt)
     # df에 load_dt column 추가 (조회 일자 : YYYYMMDD)

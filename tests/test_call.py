@@ -1,4 +1,4 @@
-from mov.api.call import gen_url, req, get_key, req2list, list2df, save2df, echo
+from mov.api.call import gen_url, req, get_key, req2list, list2df, save2df, echo, apply_type2df
 import pandas as pd
 
 def test_echo():
@@ -6,7 +6,7 @@ def test_echo():
     assert r == "Hello"
 
 def test_save2df():
-    df=save2df(load_dt='20231231')
+    df = save2df(load_dt='20231231')
     assert isinstance(df, pd.DataFrame)
     assert 'load_dt' in df.columns
    
@@ -43,3 +43,8 @@ def test_req():
     code, data = req('20231231')
     assert code == 200
 
+def test_apply_type2df():
+    df = apply_type2df(load_dt = "20231231", path="~/tmp/test_parquet")
+    num_cols = ['rnum', 'rank', 'rankInten', 'salesAmt', 'audiCnt', 'audiAcc', 'scrnCnt', 'showCnt', 'salesShare', 'salesInten', 'salesChange', 'audiInten', 'audiChange']
+    for c in num_cols:
+        assert str(df[c].dtype) in ['int64', 'float64']
