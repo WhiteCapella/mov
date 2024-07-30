@@ -2,6 +2,9 @@ import requests
 import os
 import pandas as pd
 
+def echo(yaho):
+    return yaho
+
 def save2df(load_dt):
     df = list2df(load_dt)
     # df에 load_dt column 추가 (조회 일자 : YYYYMMDD)

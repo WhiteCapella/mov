@@ -1,4 +1,4 @@
-from mov.api.call import gen_url, req, get_key, req2list, list2df, save2df
+from mov.api.call import gen_url, req, get_key, req2list, list2df, save2df, echo
 import pandas as pd
 
 def test_save2df():
@@ -39,3 +39,6 @@ def test_req():
     code, data = req('20231231')
     assert code == 200
 
+def test_echo():
+    r = echo("Hello")
+    assert r == "Hello"
